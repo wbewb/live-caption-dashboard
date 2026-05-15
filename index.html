@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Caption Project Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Local project dashboard</p>
+      <h1>Live Caption MVP</h1>
+      <p id="subtitle">Roadmap, task board, progress charts, annotations, and next-step pipeline.</p>
+    </div>
+    <div class="hero-card">
+      <span class="label">Current milestone</span>
+      <strong id="currentMilestone">Loading...</strong>
+      <small id="lastUpdated"></small>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats" id="stats"></section>
+
+    <section class="grid two">
+      <article class="card">
+        <div class="section-title">
+          <h2>Progress by status</h2>
+          <button id="resetData" class="ghost">Reset local edits</button>
+        </div>
+        <div class="chart-row">
+          <div id="donut" class="donut" aria-label="Progress chart"></div>
+          <div id="statusLegend" class="legend"></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="section-title">
+          <h2>Phase progress</h2>
+          <button id="exportData" class="ghost">Export project JSON</button>
+        </div>
+        <div id="phaseBars" class="bars"></div>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>Pipeline: what comes next</h2>
+        <span class="hint">Use this to avoid feature creep.</span>
+      </div>
+      <div id="pipeline" class="pipeline"></div>
+    </section>
+
+    <section class="grid two">
+      <article class="card">
+        <div class="section-title">
+          <h2>Targets</h2>
+          <span class="hint">Milestones to aim for</span>
+        </div>
+        <div id="targets" class="target-list"></div>
+      </article>
+      <article class="card">
+        <div class="section-title">
+          <h2>Annotations</h2>
+          <span class="hint">Decisions, wins, and notes</span>
+        </div>
+        <form id="annotationForm" class="annotation-form">
+          <input id="annotationTitle" placeholder="Add a note title..." required>
+          <input id="annotationBody" placeholder="What happened or what did we decide?" required>
+          <button>Add note</button>
+        </form>
+        <div id="annotations" class="annotations"></div>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>Task board</h2>
+        <div class="filters">
+          <input id="search" placeholder="Search tasks...">
+          <select id="phaseFilter"><option value="all">All phases</option></select>
+          <select id="statusFilter"><option value="all">All statuses</option></select>
+        </div>
+      </div>
+      <div id="taskBoard" class="task-board"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>Risks and guardrails</h2>
+        <span class="hint">Things to keep under control</span>
+      </div>
+      <div id="risks" class="risk-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    Runs locally. Your edits save in this browser using localStorage. Export JSON before clearing browser data.
+  </footer>
+  <script src="/app.js"></script>
+</body>
+</html>
