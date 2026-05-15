@@ -3,7 +3,7 @@
     "name": "Live Caption MVP Project Dashboard",
     "subtitle": "Project command center for the Ava-like captioning MVP: roadmap, delivery health, task board, risks, and next actions.",
     "lastUpdated": "2026-05-15",
-    "currentMilestone": "Stage 3: Local session saving",
+    "currentMilestone": "Stage 4: Reliability and regression QA",
     "localCommands": [
       "git pull",
       "pkill node",
@@ -24,10 +24,16 @@
       "metric": "Spanish, French, and German tested; copy, TXT, and JSON exports include translations"
     },
     {
-      "name": "Local session saving",
-      "due": "2026-05-17",
+      "name": "Local session saving MVP",
+      "due": "2026-05-15",
+      "status": "Done",
+      "metric": "Saved sessions panel works with save, open, delete, and refresh persistence"
+    },
+    {
+      "name": "Reliability QA pass",
+      "due": "2026-05-18",
       "status": "In Progress",
-      "metric": "Saved sessions panel with open/delete using browser localStorage"
+      "metric": "Manual regression checklist for captions, translations, exports, sessions, and errors"
     },
     {
       "name": "Private beta readiness",
@@ -75,26 +81,26 @@
     },
     {
       "date": "2026-05-15",
-      "title": "Stage 3 started",
-      "body": "Codex is adding local session history with saved sessions, open session, and delete session actions.",
+      "title": "Local session saving confirmed",
+      "body": "Saved sessions work with text-only transcript storage, open, delete, and persistence after page refresh. Audio is intentionally not stored yet.",
       "type": "milestone"
     }
   ],
   "pipeline": [
     {
       "stage": "Now",
-      "title": "Local session saving",
-      "description": "Save completed caption sessions in browser localStorage so transcripts can be reopened later."
+      "title": "Reliability and regression QA",
+      "description": "Create and run a manual checklist so captions, translation, exports, and saved sessions do not regress."
     },
     {
       "stage": "Next",
-      "title": "Session QA pass",
-      "description": "Test save, open, delete, export from reopened session, and refresh persistence."
+      "title": "Friendly errors and startup checks",
+      "description": "Improve messages for missing API key, quota errors, port conflicts, and browser microphone problems."
     },
     {
       "stage": "Then",
-      "title": "Reliability pass",
-      "description": "Tighten startup errors, browser compatibility, and manual regression checklist."
+      "title": "Product UX polish",
+      "description": "Make the caption app easier to scan before sharing with testers."
     },
     {
       "stage": "Later",
@@ -203,7 +209,7 @@
       "Due Date": "2026-05-14",
       "Depends On": "LC-003",
       "Done means": "Transcript entries remain visible after Stop.",
-      "Next action": "Keep transcript state stable while adding session saving.",
+      "Next action": "Keep transcript state stable while adding future features.",
       "Codex Prompt ID": "PROMPT-004",
       "Notes": "Complete."
     },
@@ -268,16 +274,16 @@
       "Task": "Add local session history using browser localStorage",
       "Why it matters": "Users need to reopen previous caption sessions without relying only on downloads.",
       "Owner": "Codex",
-      "Status": "In Progress",
+      "Status": "Done",
       "Priority": "P0 - Critical",
       "Effort hrs": "4",
       "Start Date": "2026-05-15",
-      "Due Date": "2026-05-17",
+      "Due Date": "2026-05-15",
       "Depends On": "LC-006",
       "Done means": "Stopping a session saves it locally with transcript and translations.",
-      "Next action": "Codex is building saved sessions panel now.",
+      "Next action": "Document that audio is not stored yet.",
       "Codex Prompt ID": "PROMPT-008",
-      "Notes": "Current active task."
+      "Notes": "Confirmed text-only session saving."
     },
     {
       "ID": "LC-009",
@@ -286,16 +292,16 @@
       "Task": "Add Saved sessions panel",
       "Why it matters": "Users need a visible way to find previous sessions.",
       "Owner": "Codex",
-      "Status": "In Progress",
+      "Status": "Done",
       "Priority": "P0 - Critical",
       "Effort hrs": "3",
       "Start Date": "2026-05-15",
-      "Due Date": "2026-05-17",
+      "Due Date": "2026-05-15",
       "Depends On": "LC-008",
       "Done means": "Panel lists sessions with date, utterance count, and translation target.",
-      "Next action": "Test after Codex finishes the implementation.",
+      "Next action": "Keep saved sessions visible and simple.",
       "Codex Prompt ID": "PROMPT-008",
-      "Notes": "Current active task."
+      "Notes": "Confirmed."
     },
     {
       "ID": "LC-010",
@@ -304,16 +310,16 @@
       "Task": "Open and delete saved sessions",
       "Why it matters": "Saved sessions are not useful unless users can restore and manage them.",
       "Owner": "Codex",
-      "Status": "In Progress",
+      "Status": "Done",
       "Priority": "P1 - High",
       "Effort hrs": "2",
       "Start Date": "2026-05-15",
-      "Due Date": "2026-05-17",
+      "Due Date": "2026-05-15",
       "Depends On": "LC-009",
       "Done means": "User can open a saved session into the transcript panel and delete sessions after confirmation.",
-      "Next action": "Verify open/delete behavior once Codex pushes changes.",
+      "Next action": "Use as part of regression QA.",
       "Codex Prompt ID": "PROMPT-008",
-      "Notes": "Current active task."
+      "Notes": "Confirmed."
     },
     {
       "ID": "LC-011",
@@ -322,16 +328,16 @@
       "Task": "QA saved sessions after refresh",
       "Why it matters": "localStorage must persist after page refresh and server restart.",
       "Owner": "You",
-      "Status": "Not Started",
+      "Status": "Done",
       "Priority": "P1 - High",
       "Effort hrs": "1",
-      "Start Date": "2026-05-17",
-      "Due Date": "2026-05-17",
+      "Start Date": "2026-05-15",
+      "Due Date": "2026-05-15",
       "Depends On": "LC-010",
       "Done means": "Saved sessions remain after refresh, can be opened, and can be deleted.",
-      "Next action": "Run this once Codex says session saving is ready.",
+      "Next action": "Repeat before any private beta demo.",
       "Codex Prompt ID": "PROMPT-009",
-      "Notes": "Next QA task."
+      "Notes": "Confirmed by user."
     },
     {
       "ID": "LC-012",
@@ -340,16 +346,16 @@
       "Task": "Update README for saved sessions",
       "Why it matters": "Future you needs clear instructions for how local session history works.",
       "Owner": "Codex",
-      "Status": "Not Started",
+      "Status": "In Progress",
       "Priority": "P2 - Medium",
       "Effort hrs": "1",
-      "Start Date": "2026-05-17",
+      "Start Date": "2026-05-15",
       "Due Date": "2026-05-17",
       "Depends On": "LC-011",
       "Done means": "README explains localStorage, export backups, and delete behavior.",
-      "Next action": "Ask Codex to include README update in the session-saving PR/commit.",
+      "Next action": "Confirm README mentions text-only saved sessions and no audio recording storage.",
       "Codex Prompt ID": "PROMPT-009",
-      "Notes": "Documentation follow-up."
+      "Notes": "Documentation check remains."
     },
     {
       "ID": "LC-013",
@@ -358,16 +364,16 @@
       "Task": "Create manual regression checklist",
       "Why it matters": "Every new feature should be tested without breaking captions.",
       "Owner": "You + ChatGPT",
-      "Status": "Not Started",
+      "Status": "In Progress",
       "Priority": "P1 - High",
       "Effort hrs": "2",
-      "Start Date": "2026-05-18",
-      "Due Date": "2026-05-19",
+      "Start Date": "2026-05-15",
+      "Due Date": "2026-05-18",
       "Depends On": "LC-011",
       "Done means": "Checklist covers captioning, translation, exports, sessions, errors, and browser refresh.",
-      "Next action": "Build checklist after session saving works.",
+      "Next action": "Build checklist after README check.",
       "Codex Prompt ID": "PROMPT-010",
-      "Notes": "Next stage."
+      "Notes": "Current milestone."
     },
     {
       "ID": "LC-014",
@@ -383,7 +389,7 @@
       "Due Date": "2026-05-20",
       "Depends On": "LC-013",
       "Done means": "Common errors have clear UI messages and safe logs.",
-      "Next action": "Do after session saving QA.",
+      "Next action": "Do after checklist is written.",
       "Codex Prompt ID": "PROMPT-011",
       "Notes": "Do not start yet."
     },
