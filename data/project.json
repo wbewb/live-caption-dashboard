@@ -30,10 +30,10 @@
       "metric": "Saved sessions panel works with save, open, delete, and refresh persistence"
     },
     {
-      "name": "Manual QA checklist",
+      "name": "Manual QA checklist and run",
       "due": "2026-05-15",
       "status": "Done",
-      "metric": "QA_CHECKLIST.md added and README links to it"
+      "metric": "QA_CHECKLIST.md added and full checklist run passed"
     },
     {
       "name": "Friendly error handling",
@@ -84,6 +84,12 @@
       "title": "Manual QA checklist added",
       "body": "QA_CHECKLIST.md now covers startup, mic access, captions, translations, exports, saved sessions, and common errors. README links to it.",
       "type": "qa"
+    },
+    {
+      "date": "2026-05-15",
+      "title": "Manual QA run passed",
+      "body": "The full Stage 4 checklist was run by the user and passed. The current working baseline is stable before friendly error handling changes.",
+      "type": "qa"
     }
   ],
   "pipeline": [
@@ -94,7 +100,7 @@
     },
     {
       "stage": "Next",
-      "title": "Run full QA checklist",
+      "title": "Run QA checklist again",
       "description": "Use QA_CHECKLIST.md top to bottom after friendly error changes land."
     },
     {
@@ -361,19 +367,19 @@
       "ID": "LC-013",
       "Phase": "Stage 4 - Reliability",
       "Workstream": "Testing",
-      "Task": "Create manual regression checklist",
+      "Task": "Create and run manual regression checklist",
       "Why it matters": "Every new feature should be tested without breaking captions.",
-      "Owner": "Codex",
+      "Owner": "You + Codex",
       "Status": "Done",
       "Priority": "P1 - High",
       "Effort hrs": "2",
       "Start Date": "2026-05-15",
       "Due Date": "2026-05-15",
       "Depends On": "LC-011",
-      "Done means": "Checklist covers captioning, translation, exports, sessions, errors, and browser refresh.",
-      "Next action": "Use QA_CHECKLIST.md after any code change.",
+      "Done means": "Checklist covers captioning, translation, exports, sessions, errors, and browser refresh, and has been run successfully.",
+      "Next action": "Run QA_CHECKLIST.md again after any code change.",
       "Codex Prompt ID": "PROMPT-010",
-      "Notes": "QA_CHECKLIST.md added; README links to it."
+      "Notes": "QA_CHECKLIST.md added and user confirmed full checklist passed."
     },
     {
       "ID": "LC-014",
