@@ -3,7 +3,7 @@
     "name": "Live Caption MVP Project Dashboard",
     "subtitle": "Project command center for the Ava-like captioning MVP: roadmap, delivery health, task board, risks, and next actions.",
     "lastUpdated": "2026-05-15",
-    "currentMilestone": "Stage 4: Friendly errors and startup checks",
+    "currentMilestone": "Stage 5: Product UX polish",
     "localCommands": [
       "git pull",
       "pkill node",
@@ -37,9 +37,15 @@
     },
     {
       "name": "Friendly error handling",
-      "due": "2026-05-18",
+      "due": "2026-05-15",
+      "status": "Done",
+      "metric": "Clearer messages for port conflict, missing/invalid key, quota, and microphone issues"
+    },
+    {
+      "name": "Product UX polish",
+      "due": "2026-05-24",
       "status": "In Progress",
-      "metric": "Clear messages for port conflict, missing/invalid key, quota, and microphone issues"
+      "metric": "Cleaner caption app layout, better saved-session area, and easier controls"
     },
     {
       "name": "Private beta readiness",
@@ -81,32 +87,32 @@
     },
     {
       "date": "2026-05-15",
-      "title": "Manual QA checklist added",
-      "body": "QA_CHECKLIST.md now covers startup, mic access, captions, translations, exports, saved sessions, and common errors. README links to it.",
+      "title": "Manual QA run passed",
+      "body": "The full Stage 4 checklist was run by the user and passed. The current working baseline is stable.",
       "type": "qa"
     },
     {
       "date": "2026-05-15",
-      "title": "Manual QA run passed",
-      "body": "The full Stage 4 checklist was run by the user and passed. The current working baseline is stable before friendly error handling changes.",
+      "title": "Friendly error handling confirmed",
+      "body": "Friendly startup and browser-facing error messages are working. The app remains stable after the reliability pass.",
       "type": "qa"
     }
   ],
   "pipeline": [
     {
       "stage": "Now",
-      "title": "Friendly errors and startup checks",
-      "description": "Improve messages for missing API key, invalid key, quota errors, port conflicts, and browser microphone problems."
+      "title": "Product UX polish",
+      "description": "Make the caption app easier to scan and use: layout, controls, transcript, exports, and saved sessions."
     },
     {
       "stage": "Next",
       "title": "Run QA checklist again",
-      "description": "Use QA_CHECKLIST.md top to bottom after friendly error changes land."
+      "description": "Use QA_CHECKLIST.md top to bottom after UX polish changes land."
     },
     {
       "stage": "Then",
-      "title": "Product UX polish",
-      "description": "Make the caption app easier to scan before sharing with testers."
+      "title": "Private beta preparation",
+      "description": "Prepare a simple tester guide, known limitations, and feedback questions."
     },
     {
       "stage": "Later",
@@ -115,8 +121,8 @@
     },
     {
       "stage": "Future",
-      "title": "Private beta",
-      "description": "Share with a few users, collect feedback, and decide the product direction."
+      "title": "Cloud sync or accounts",
+      "description": "Only consider this after private beta feedback proves it is needed."
     }
   ],
   "risks": [
@@ -388,16 +394,16 @@
       "Task": "Improve friendly startup and error messages",
       "Why it matters": "Beginners need obvious guidance when ports, API keys, or quota fail.",
       "Owner": "Codex",
-      "Status": "In Progress",
+      "Status": "Done",
       "Priority": "P1 - High",
       "Effort hrs": "3",
       "Start Date": "2026-05-15",
-      "Due Date": "2026-05-18",
+      "Due Date": "2026-05-15",
       "Depends On": "LC-013",
       "Done means": "Common errors have clear UI messages and safe logs.",
-      "Next action": "Ask Codex to improve friendly error messages next.",
+      "Next action": "Run QA checklist again after any future backend changes.",
       "Codex Prompt ID": "PROMPT-011",
-      "Notes": "Current focus."
+      "Notes": "Confirmed working."
     },
     {
       "ID": "LC-015",
@@ -406,16 +412,16 @@
       "Task": "Improve caption app visual layout",
       "Why it matters": "The app should feel clean enough to show to a tester.",
       "Owner": "You + Codex",
-      "Status": "Not Started",
+      "Status": "In Progress",
       "Priority": "P2 - Medium",
       "Effort hrs": "4",
-      "Start Date": "2026-05-20",
+      "Start Date": "2026-05-15",
       "Due Date": "2026-05-24",
       "Depends On": "LC-014",
       "Done means": "Controls, transcript, saved sessions, and exports are easier to scan.",
-      "Next action": "Start after reliability pass.",
+      "Next action": "Use Codex for a focused UX polish pass, without changing transcription logic.",
       "Codex Prompt ID": "PROMPT-012",
-      "Notes": "Later."
+      "Notes": "Current focus."
     },
     {
       "ID": "LC-016",
