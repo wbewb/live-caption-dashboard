@@ -3,7 +3,7 @@
     "name": "Live Caption MVP Project Dashboard",
     "subtitle": "Project command center for the Ava-like captioning MVP: roadmap, delivery health, task board, risks, and next actions.",
     "lastUpdated": "2026-05-15",
-    "currentMilestone": "Stage 4: Reliability and regression QA",
+    "currentMilestone": "Stage 4: Friendly errors and startup checks",
     "localCommands": [
       "git pull",
       "pkill node",
@@ -30,22 +30,22 @@
       "metric": "Saved sessions panel works with save, open, delete, and refresh persistence"
     },
     {
-      "name": "Reliability QA pass",
+      "name": "Manual QA checklist",
+      "due": "2026-05-15",
+      "status": "Done",
+      "metric": "QA_CHECKLIST.md added and README links to it"
+    },
+    {
+      "name": "Friendly error handling",
       "due": "2026-05-18",
       "status": "In Progress",
-      "metric": "Manual regression checklist for captions, translations, exports, sessions, and errors"
+      "metric": "Clear messages for port conflict, missing/invalid key, quota, and microphone issues"
     },
     {
       "name": "Private beta readiness",
       "due": "2026-06-07",
       "status": "Planned",
       "metric": "Stable sessions, exports, instructions, QA checklist, and basic UX polish"
-    },
-    {
-      "name": "Desktop overlay prototype",
-      "due": "2026-06-21",
-      "status": "Planned",
-      "metric": "Floating caption window for meetings and videos"
     }
   ],
   "annotations": [
@@ -60,12 +60,6 @@
       "title": "Realtime transcription fixed",
       "body": "Changed Realtime URL/session shape and omitted unsupported VAD for gpt-realtime-whisper.",
       "type": "technical"
-    },
-    {
-      "date": "2026-05-14",
-      "title": "Transcript persistence confirmed",
-      "body": "Stopping a caption session now keeps the transcript entry visible.",
-      "type": "qa"
     },
     {
       "date": "2026-05-15",
@@ -84,18 +78,24 @@
       "title": "Local session saving confirmed",
       "body": "Saved sessions work with text-only transcript storage, open, delete, and persistence after page refresh. Audio is intentionally not stored yet.",
       "type": "milestone"
+    },
+    {
+      "date": "2026-05-15",
+      "title": "Manual QA checklist added",
+      "body": "QA_CHECKLIST.md now covers startup, mic access, captions, translations, exports, saved sessions, and common errors. README links to it.",
+      "type": "qa"
     }
   ],
   "pipeline": [
     {
       "stage": "Now",
-      "title": "Reliability and regression QA",
-      "description": "Create and run a manual checklist so captions, translation, exports, and saved sessions do not regress."
+      "title": "Friendly errors and startup checks",
+      "description": "Improve messages for missing API key, invalid key, quota errors, port conflicts, and browser microphone problems."
     },
     {
       "stage": "Next",
-      "title": "Friendly errors and startup checks",
-      "description": "Improve messages for missing API key, quota errors, port conflicts, and browser microphone problems."
+      "title": "Run full QA checklist",
+      "description": "Use QA_CHECKLIST.md top to bottom after friendly error changes land."
     },
     {
       "stage": "Then",
@@ -175,7 +175,7 @@
       "Done means": "OpenAI websocket opens and accepts streamed PCM audio.",
       "Next action": "Do not touch working transcription path unless necessary.",
       "Codex Prompt ID": "PROMPT-002",
-      "Notes": "Realtime URL/session shape fixed; unsupported VAD omitted."
+      "Notes": "Complete."
     },
     {
       "ID": "LC-003",
@@ -346,16 +346,16 @@
       "Task": "Update README for saved sessions",
       "Why it matters": "Future you needs clear instructions for how local session history works.",
       "Owner": "Codex",
-      "Status": "In Progress",
+      "Status": "Done",
       "Priority": "P2 - Medium",
       "Effort hrs": "1",
       "Start Date": "2026-05-15",
-      "Due Date": "2026-05-17",
+      "Due Date": "2026-05-15",
       "Depends On": "LC-011",
       "Done means": "README explains localStorage, export backups, and delete behavior.",
-      "Next action": "Confirm README mentions text-only saved sessions and no audio recording storage.",
+      "Next action": "Keep README updated after future storage changes.",
       "Codex Prompt ID": "PROMPT-009",
-      "Notes": "Documentation check remains."
+      "Notes": "Complete."
     },
     {
       "ID": "LC-013",
@@ -363,17 +363,17 @@
       "Workstream": "Testing",
       "Task": "Create manual regression checklist",
       "Why it matters": "Every new feature should be tested without breaking captions.",
-      "Owner": "You + ChatGPT",
-      "Status": "In Progress",
+      "Owner": "Codex",
+      "Status": "Done",
       "Priority": "P1 - High",
       "Effort hrs": "2",
       "Start Date": "2026-05-15",
-      "Due Date": "2026-05-18",
+      "Due Date": "2026-05-15",
       "Depends On": "LC-011",
       "Done means": "Checklist covers captioning, translation, exports, sessions, errors, and browser refresh.",
-      "Next action": "Build checklist after README check.",
+      "Next action": "Use QA_CHECKLIST.md after any code change.",
       "Codex Prompt ID": "PROMPT-010",
-      "Notes": "Current milestone."
+      "Notes": "QA_CHECKLIST.md added; README links to it."
     },
     {
       "ID": "LC-014",
@@ -382,16 +382,16 @@
       "Task": "Improve friendly startup and error messages",
       "Why it matters": "Beginners need obvious guidance when ports, API keys, or quota fail.",
       "Owner": "Codex",
-      "Status": "Not Started",
+      "Status": "In Progress",
       "Priority": "P1 - High",
       "Effort hrs": "3",
-      "Start Date": "2026-05-18",
-      "Due Date": "2026-05-20",
+      "Start Date": "2026-05-15",
+      "Due Date": "2026-05-18",
       "Depends On": "LC-013",
       "Done means": "Common errors have clear UI messages and safe logs.",
-      "Next action": "Do after checklist is written.",
+      "Next action": "Ask Codex to improve friendly error messages next.",
       "Codex Prompt ID": "PROMPT-011",
-      "Notes": "Do not start yet."
+      "Notes": "Current focus."
     },
     {
       "ID": "LC-015",
