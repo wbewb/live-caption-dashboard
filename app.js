@@ -21,7 +21,7 @@ function escapeHtml(value) {
 async function loadProject() {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) return JSON.parse(saved);
-  const response = await fetch('/data/project.json');
+  const response = await fetch('data/project.json');
   if (!response.ok) throw new Error('Could not load project.json');
   return response.json();
 }
