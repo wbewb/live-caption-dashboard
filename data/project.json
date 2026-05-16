@@ -48,6 +48,12 @@
       "metric": "Cleaner caption app layout, better saved-session area, clearer notifications, and easier controls"
     },
     {
+      "name": "Multilingual and accent robustness",
+      "due": "2026-05-16",
+      "status": "Done",
+      "metric": "Auto detect works, language hints improve accuracy, English translation target added, and prompt bug fixed"
+    },
+    {
       "name": "Private beta readiness",
       "due": "2026-06-07",
       "status": "In Progress",
@@ -102,6 +108,12 @@
       "title": "Product UX polish confirmed",
       "body": "Stage 5 UI polish passed QA. The notification, layout balance, controls, transcript readability, and saved sessions remain usable, and the caption engine still works.",
       "type": "qa"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "Multilingual and accent robustness confirmed",
+      "body": "Auto detect works, specific language hints improve accuracy, translation to English works, and the unsupported Realtime Whisper prompt bug was fixed. Vocabulary boost remains visible but is documented as not guaranteed for the current model.",
+      "type": "qa"
     }
   ],
   "pipeline": [
@@ -118,7 +130,7 @@
     {
       "stage": "Then",
       "title": "First private tester session",
-      "description": "Share with one trusted tester and capture feedback on setup, captions, translations, exports, and saved sessions."
+      "description": "Share with one trusted tester and capture feedback on setup, captions, translations, exports, saved sessions, language hints, and known limitations."
     },
     {
       "stage": "Later",
@@ -151,6 +163,11 @@
       "risk": "Browser mic differences",
       "level": "Medium",
       "mitigation": "Use Chrome as the primary test browser before Safari/Edge."
+    },
+    {
+      "risk": "Auto detect can misidentify short phrases or place names",
+      "level": "Medium",
+      "mitigation": "Guide users to choose a specific language hint when they know the spoken language."
     },
     {
       "risk": "Accessibility quality",
@@ -431,6 +448,24 @@
     },
     {
       "ID": "LC-016",
+      "Phase": "Stage 5.5 - Multilingual and accent robustness",
+      "Workstream": "Speech QA",
+      "Task": "Add and verify multilingual/accent robustness support",
+      "Why it matters": "The product must support real conversations with accents, language switching, and non-English speech.",
+      "Owner": "You + Codex",
+      "Status": "Done",
+      "Priority": "P1 - High",
+      "Effort hrs": "4",
+      "Start Date": "2026-05-16",
+      "Due Date": "2026-05-16",
+      "Depends On": "LC-015",
+      "Done means": "Auto detect works, specific language hints improve accuracy, English translation target works, and existing caption/session behavior still works.",
+      "Next action": "During beta, ask testers to try known-language hints when Auto detect struggles.",
+      "Codex Prompt ID": "PROMPT-013",
+      "Notes": "Prompt parameter bug fixed for gpt-realtime-whisper; vocabulary boost is not guaranteed on the current Realtime Whisper model."
+    },
+    {
+      "ID": "LC-017",
       "Phase": "Private beta preparation",
       "Workstream": "Testing",
       "Task": "Prepare first private tester guide",
@@ -441,14 +476,14 @@
       "Effort hrs": "3",
       "Start Date": "2026-05-16",
       "Due Date": "2026-05-20",
-      "Depends On": "LC-015",
+      "Depends On": "LC-016",
       "Done means": "There is a short tester guide and feedback form/questions before sharing the app.",
       "Next action": "Create private beta tester guide and known limitations list.",
-      "Codex Prompt ID": "PROMPT-013",
+      "Codex Prompt ID": "PROMPT-014",
       "Notes": "Current focus."
     },
     {
-      "ID": "LC-017",
+      "ID": "LC-018",
       "Phase": "Stage 6 - Desktop overlay",
       "Workstream": "Desktop",
       "Task": "Prototype floating caption overlay",
@@ -459,10 +494,10 @@
       "Effort hrs": "8",
       "Start Date": "2026-06-01",
       "Due Date": "2026-06-21",
-      "Depends On": "LC-016",
+      "Depends On": "LC-017",
       "Done means": "A floating caption window prototype works locally.",
       "Next action": "Do not start until private beta preparation is complete.",
-      "Codex Prompt ID": "PROMPT-014",
+      "Codex Prompt ID": "PROMPT-015",
       "Notes": "Later."
     }
   ]
