@@ -3,7 +3,7 @@
     "name": "Live Caption MVP Project Dashboard",
     "subtitle": "Project command center for the Ava-like captioning MVP: roadmap, delivery health, task board, risks, and next actions.",
     "lastUpdated": "2026-05-16",
-    "currentMilestone": "Private beta preparation",
+    "currentMilestone": "First private tester session",
     "localCommands": [
       "git pull",
       "pkill node",
@@ -21,7 +21,7 @@
       "name": "Translation and export polish",
       "due": "2026-05-15",
       "status": "Done",
-      "metric": "Spanish, French, and German tested; copy, TXT, and JSON exports include translations"
+      "metric": "Spanish, French, German, Hindi, Chinese, and English translation paths tested"
     },
     {
       "name": "Local session saving MVP",
@@ -30,16 +30,10 @@
       "metric": "Saved sessions panel works with save, open, delete, and refresh persistence"
     },
     {
-      "name": "Manual QA checklist and run",
+      "name": "Reliability and QA baseline",
       "due": "2026-05-15",
       "status": "Done",
-      "metric": "QA_CHECKLIST.md added and full checklist run passed"
-    },
-    {
-      "name": "Friendly error handling",
-      "due": "2026-05-15",
-      "status": "Done",
-      "metric": "Clearer messages for port conflict, missing/invalid key, quota, and microphone issues"
+      "metric": "QA checklist exists, has passed, and friendly error handling works"
     },
     {
       "name": "Product UX polish",
@@ -54,10 +48,22 @@
       "metric": "Auto detect works, language hints improve accuracy, English translation target added, and prompt bug fixed"
     },
     {
+      "name": "Private beta prep docs",
+      "due": "2026-05-16",
+      "status": "Done",
+      "metric": "Tester guide, known limitations, feedback questions, demo checklist, and README links created"
+    },
+    {
+      "name": "First private tester session",
+      "due": "2026-05-20",
+      "status": "In Progress",
+      "metric": "Choose one tester, run the demo checklist, capture feedback, and decide next fixes"
+    },
+    {
       "name": "Private beta readiness",
       "due": "2026-06-07",
-      "status": "In Progress",
-      "metric": "Prepare tester guide, known limitations, feedback questions, and demo checklist"
+      "status": "Planned",
+      "metric": "Use first tester feedback to decide whether the MVP is ready for a small private beta"
     }
   ],
   "annotations": [
@@ -75,14 +81,8 @@
     },
     {
       "date": "2026-05-15",
-      "title": "Translation MVP confirmed",
-      "body": "Spanish, French, and German translations work for completed transcript entries.",
-      "type": "feature"
-    },
-    {
-      "date": "2026-05-15",
-      "title": "Exports confirmed",
-      "body": "Copy transcript, TXT download, and JSON download include original text and translations clearly.",
+      "title": "Translation and exports confirmed",
+      "body": "Translations work and Copy, TXT, and JSON exports include original text and translations clearly.",
       "type": "qa"
     },
     {
@@ -93,20 +93,14 @@
     },
     {
       "date": "2026-05-15",
-      "title": "Manual QA run passed",
-      "body": "The full Stage 4 checklist was run by the user and passed. The current working baseline is stable.",
-      "type": "qa"
-    },
-    {
-      "date": "2026-05-15",
-      "title": "Friendly error handling confirmed",
-      "body": "Friendly startup and browser-facing error messages are working. The app remains stable after the reliability pass.",
+      "title": "Manual QA and friendly errors confirmed",
+      "body": "The QA checklist passed, friendly startup/browser-facing error messages work, and the app stayed stable after the reliability pass.",
       "type": "qa"
     },
     {
       "date": "2026-05-16",
       "title": "Product UX polish confirmed",
-      "body": "Stage 5 UI polish passed QA. The notification, layout balance, controls, transcript readability, and saved sessions remain usable, and the caption engine still works.",
+      "body": "The notification, layout balance, controls, transcript readability, and saved sessions remain usable, and the caption engine still works.",
       "type": "qa"
     },
     {
@@ -114,28 +108,34 @@
       "title": "Multilingual and accent robustness confirmed",
       "body": "Auto detect works, specific language hints improve accuracy, translation to English works, and the unsupported Realtime Whisper prompt bug was fixed. Vocabulary boost remains visible but is documented as not guaranteed for the current model.",
       "type": "qa"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "Private beta prep docs created",
+      "body": "BETA_TESTER_GUIDE.md, KNOWN_LIMITATIONS.md, FEEDBACK_QUESTIONS.md, and DEMO_CHECKLIST.md were added. README links to all four. No app code changed.",
+      "type": "milestone"
     }
   ],
   "pipeline": [
     {
       "stage": "Now",
-      "title": "Private beta preparation",
-      "description": "Prepare a simple tester guide, known limitations, feedback questions, and a demo checklist."
+      "title": "First private tester session",
+      "description": "Choose one trusted tester, run DEMO_CHECKLIST.md, share the tester docs, and capture feedback."
     },
     {
       "stage": "Next",
-      "title": "Run QA checklist before sharing",
-      "description": "Use QA_CHECKLIST.md top to bottom before anyone else tests the app."
+      "title": "Triage tester feedback",
+      "description": "Separate feedback into bugs, confusing UX, accuracy issues, and future ideas. Fix only the highest-value small items first."
     },
     {
       "stage": "Then",
-      "title": "First private tester session",
-      "description": "Share with one trusted tester and capture feedback on setup, captions, translations, exports, saved sessions, language hints, and known limitations."
+      "title": "Small private beta",
+      "description": "After the first tester session is understood, invite a small group and repeat the same feedback process."
     },
     {
       "stage": "Later",
       "title": "Desktop overlay",
-      "description": "Build a floating caption bar for meetings and videos after the web app is stable."
+      "description": "Build a floating caption bar for meetings and videos after the web app is stable and tester feedback supports it."
     },
     {
       "stage": "Future",
@@ -152,12 +152,12 @@
     {
       "risk": "Feature creep",
       "level": "High",
-      "mitigation": "Only one Codex task at a time; do not start database, login, or desktop overlay yet."
+      "mitigation": "Only one Codex task at a time; do not start database, login, or desktop overlay until beta feedback is reviewed."
     },
     {
       "risk": "API usage costs",
       "level": "Medium",
-      "mitigation": "Keep translation on final transcripts only and watch OpenAI billing."
+      "mitigation": "Keep translation on final transcripts only and check OpenAI billing before demos."
     },
     {
       "risk": "Browser mic differences",
@@ -168,6 +168,11 @@
       "risk": "Auto detect can misidentify short phrases or place names",
       "level": "Medium",
       "mitigation": "Guide users to choose a specific language hint when they know the spoken language."
+    },
+    {
+      "risk": "Tester feedback may be too broad",
+      "level": "Medium",
+      "mitigation": "Use FEEDBACK_QUESTIONS.md and ask testers to focus on setup, accuracy, translation, exports, and saved sessions."
     },
     {
       "risk": "Accessibility quality",
@@ -181,323 +186,155 @@
       "Phase": "Stage 1 - Core MVP",
       "Workstream": "Setup",
       "Task": "Run the local caption app",
-      "Why it matters": "Proves the project can run on your Mac before adding features.",
       "Owner": "You",
       "Status": "Done",
       "Priority": "P0 - Critical",
-      "Effort hrs": "1",
-      "Start Date": "2026-05-14",
       "Due Date": "2026-05-14",
-      "Depends On": "None",
       "Done means": "localhost:5174 opens and shows the caption UI.",
-      "Next action": "Keep using Chrome for primary tests.",
-      "Codex Prompt ID": "PROMPT-001",
+      "Next action": "Use this as the regression test after every change.",
       "Notes": "Complete."
     },
     {
       "ID": "LC-002",
       "Phase": "Stage 1 - Core MVP",
-      "Workstream": "Backend",
-      "Task": "Fix OpenAI Realtime transcription connection",
-      "Why it matters": "Captions could not work until the websocket opened correctly.",
-      "Owner": "Codex",
+      "Workstream": "Speech",
+      "Task": "Fix and confirm live Realtime captions",
+      "Owner": "You + Codex",
       "Status": "Done",
       "Priority": "P0 - Critical",
-      "Effort hrs": "3",
-      "Start Date": "2026-05-14",
       "Due Date": "2026-05-14",
-      "Depends On": "LC-001",
-      "Done means": "OpenAI websocket opens and accepts streamed PCM audio.",
+      "Done means": "OpenAI websocket opens, accepts streamed PCM audio, and spoken English appears as captions.",
       "Next action": "Do not touch working transcription path unless necessary.",
-      "Codex Prompt ID": "PROMPT-002",
-      "Notes": "Complete."
+      "Notes": "Realtime URL/session shape fixed; unsupported VAD omitted."
     },
     {
       "ID": "LC-003",
-      "Phase": "Stage 1 - Core MVP",
-      "Workstream": "Speech",
-      "Task": "Confirm live captions in Chrome",
-      "Why it matters": "This is the main product proof point.",
-      "Owner": "You",
-      "Status": "Done",
-      "Priority": "P0 - Critical",
-      "Effort hrs": "1",
-      "Start Date": "2026-05-14",
-      "Due Date": "2026-05-14",
-      "Depends On": "LC-002",
-      "Done means": "Spoken English appears as live captions.",
-      "Next action": "Use this as the regression test after every change.",
-      "Codex Prompt ID": "PROMPT-003",
-      "Notes": "Complete."
-    },
-    {
-      "ID": "LC-004",
-      "Phase": "Stage 1 - Core MVP",
-      "Workstream": "Frontend",
-      "Task": "Preserve transcript after Stop",
-      "Why it matters": "Users must not lose captions when a session ends.",
-      "Owner": "Codex",
-      "Status": "Done",
-      "Priority": "P0 - Critical",
-      "Effort hrs": "2",
-      "Start Date": "2026-05-14",
-      "Due Date": "2026-05-14",
-      "Depends On": "LC-003",
-      "Done means": "Transcript entries remain visible after Stop.",
-      "Next action": "Keep transcript state stable while adding future features.",
-      "Codex Prompt ID": "PROMPT-004",
-      "Notes": "Complete."
-    },
-    {
-      "ID": "LC-005",
       "Phase": "Stage 2 - Translation and exports",
       "Workstream": "Translation",
       "Task": "Add translation dropdown and completed-transcript translation",
-      "Why it matters": "Moves the MVP from captions only to multilingual usefulness.",
-      "Owner": "Codex",
+      "Owner": "You + Codex",
       "Status": "Done",
       "Priority": "P0 - Critical",
-      "Effort hrs": "4",
-      "Start Date": "2026-05-15",
       "Due Date": "2026-05-15",
-      "Depends On": "LC-004",
-      "Done means": "Spanish, French, and German translations appear under transcript entries.",
+      "Done means": "Translations appear under transcript entries and exports include them.",
       "Next action": "Keep translation on final transcripts only for now.",
-      "Codex Prompt ID": "PROMPT-005",
+      "Notes": "Spanish, French, German, Hindi, Chinese, and English translation paths tested."
+    },
+    {
+      "ID": "LC-004",
+      "Phase": "Stage 3 - Session saving",
+      "Workstream": "Storage",
+      "Task": "Add local saved sessions",
+      "Owner": "You + Codex",
+      "Status": "Done",
+      "Priority": "P0 - Critical",
+      "Due Date": "2026-05-15",
+      "Done means": "Stopping a session saves text/translations locally; sessions can be opened, deleted, and survive refresh.",
+      "Next action": "Document that audio is not stored yet.",
+      "Notes": "Confirmed text-only session saving."
+    },
+    {
+      "ID": "LC-005",
+      "Phase": "Stage 4 - Reliability",
+      "Workstream": "Testing",
+      "Task": "Create and run manual regression checklist",
+      "Owner": "You + Codex",
+      "Status": "Done",
+      "Priority": "P1 - High",
+      "Due Date": "2026-05-15",
+      "Done means": "QA_CHECKLIST.md covers captioning, translation, exports, sessions, errors, browser refresh, and has passed.",
+      "Next action": "Run QA_CHECKLIST.md before sharing with a tester.",
       "Notes": "Complete."
     },
     {
       "ID": "LC-006",
-      "Phase": "Stage 2 - Translation and exports",
-      "Workstream": "Exports",
-      "Task": "Include translations in Copy, TXT, and JSON exports",
-      "Why it matters": "Exports are only useful if they preserve the translated text.",
-      "Owner": "Codex",
+      "Phase": "Stage 4 - Reliability",
+      "Workstream": "Error handling",
+      "Task": "Improve friendly startup and browser error messages",
+      "Owner": "You + Codex",
       "Status": "Done",
       "Priority": "P1 - High",
-      "Effort hrs": "2",
-      "Start Date": "2026-05-15",
       "Due Date": "2026-05-15",
-      "Depends On": "LC-005",
-      "Done means": "Copy, TXT, and JSON all include original text and translations clearly.",
-      "Next action": "Use exports as part of each manual QA pass.",
-      "Codex Prompt ID": "PROMPT-006",
-      "Notes": "Complete."
+      "Done means": "Common errors have clear UI messages and safe logs.",
+      "Next action": "Run QA checklist after any future backend change.",
+      "Notes": "Friendly port error and normal app regression confirmed."
     },
     {
       "ID": "LC-007",
-      "Phase": "Stage 2 - Translation and exports",
-      "Workstream": "QA",
-      "Task": "Verify Spanish, French, and German translation output",
-      "Why it matters": "Confirms translation works beyond one language.",
-      "Owner": "You",
-      "Status": "Done",
-      "Priority": "P1 - High",
-      "Effort hrs": "1",
-      "Start Date": "2026-05-15",
-      "Due Date": "2026-05-15",
-      "Depends On": "LC-005",
-      "Done means": "All three languages tested with visible translation output.",
-      "Next action": "Add more language QA later, not now.",
-      "Codex Prompt ID": "PROMPT-007",
-      "Notes": "Complete."
-    },
-    {
-      "ID": "LC-008",
-      "Phase": "Stage 3 - Session saving",
-      "Workstream": "Storage",
-      "Task": "Add local session history using browser localStorage",
-      "Why it matters": "Users need to reopen previous caption sessions without relying only on downloads.",
-      "Owner": "Codex",
-      "Status": "Done",
-      "Priority": "P0 - Critical",
-      "Effort hrs": "4",
-      "Start Date": "2026-05-15",
-      "Due Date": "2026-05-15",
-      "Depends On": "LC-006",
-      "Done means": "Stopping a session saves it locally with transcript and translations.",
-      "Next action": "Document that audio is not stored yet.",
-      "Codex Prompt ID": "PROMPT-008",
-      "Notes": "Confirmed text-only session saving."
-    },
-    {
-      "ID": "LC-009",
-      "Phase": "Stage 3 - Session saving",
-      "Workstream": "Frontend",
-      "Task": "Add Saved sessions panel",
-      "Why it matters": "Users need a visible way to find previous sessions.",
-      "Owner": "Codex",
-      "Status": "Done",
-      "Priority": "P0 - Critical",
-      "Effort hrs": "3",
-      "Start Date": "2026-05-15",
-      "Due Date": "2026-05-15",
-      "Depends On": "LC-008",
-      "Done means": "Panel lists sessions with date, utterance count, and translation target.",
-      "Next action": "Keep saved sessions visible and simple.",
-      "Codex Prompt ID": "PROMPT-008",
-      "Notes": "Confirmed."
-    },
-    {
-      "ID": "LC-010",
-      "Phase": "Stage 3 - Session saving",
-      "Workstream": "Frontend",
-      "Task": "Open and delete saved sessions",
-      "Why it matters": "Saved sessions are not useful unless users can restore and manage them.",
-      "Owner": "Codex",
-      "Status": "Done",
-      "Priority": "P1 - High",
-      "Effort hrs": "2",
-      "Start Date": "2026-05-15",
-      "Due Date": "2026-05-15",
-      "Depends On": "LC-009",
-      "Done means": "User can open a saved session into the transcript panel and delete sessions after confirmation.",
-      "Next action": "Use as part of regression QA.",
-      "Codex Prompt ID": "PROMPT-008",
-      "Notes": "Confirmed."
-    },
-    {
-      "ID": "LC-011",
-      "Phase": "Stage 3 - Session saving",
-      "Workstream": "QA",
-      "Task": "QA saved sessions after refresh",
-      "Why it matters": "localStorage must persist after page refresh and server restart.",
-      "Owner": "You",
-      "Status": "Done",
-      "Priority": "P1 - High",
-      "Effort hrs": "1",
-      "Start Date": "2026-05-15",
-      "Due Date": "2026-05-15",
-      "Depends On": "LC-010",
-      "Done means": "Saved sessions remain after refresh, can be opened, and can be deleted.",
-      "Next action": "Repeat before any private beta demo.",
-      "Codex Prompt ID": "PROMPT-009",
-      "Notes": "Confirmed by user."
-    },
-    {
-      "ID": "LC-012",
-      "Phase": "Stage 3 - Session saving",
-      "Workstream": "Documentation",
-      "Task": "Update README for saved sessions",
-      "Why it matters": "Future you needs clear instructions for how local session history works.",
-      "Owner": "Codex",
-      "Status": "Done",
-      "Priority": "P2 - Medium",
-      "Effort hrs": "1",
-      "Start Date": "2026-05-15",
-      "Due Date": "2026-05-15",
-      "Depends On": "LC-011",
-      "Done means": "README explains localStorage, export backups, and delete behavior.",
-      "Next action": "Keep README updated after future storage changes.",
-      "Codex Prompt ID": "PROMPT-009",
-      "Notes": "Complete."
-    },
-    {
-      "ID": "LC-013",
-      "Phase": "Stage 4 - Reliability",
-      "Workstream": "Testing",
-      "Task": "Create and run manual regression checklist",
-      "Why it matters": "Every new feature should be tested without breaking captions.",
-      "Owner": "You + Codex",
-      "Status": "Done",
-      "Priority": "P1 - High",
-      "Effort hrs": "2",
-      "Start Date": "2026-05-15",
-      "Due Date": "2026-05-15",
-      "Depends On": "LC-011",
-      "Done means": "Checklist covers captioning, translation, exports, sessions, errors, and browser refresh, and has been run successfully.",
-      "Next action": "Run QA_CHECKLIST.md again after any code change.",
-      "Codex Prompt ID": "PROMPT-010",
-      "Notes": "QA_CHECKLIST.md added and user confirmed full checklist passed."
-    },
-    {
-      "ID": "LC-014",
-      "Phase": "Stage 4 - Reliability",
-      "Workstream": "Backend",
-      "Task": "Improve friendly startup and error messages",
-      "Why it matters": "Beginners need obvious guidance when ports, API keys, or quota fail.",
-      "Owner": "Codex",
-      "Status": "Done",
-      "Priority": "P1 - High",
-      "Effort hrs": "3",
-      "Start Date": "2026-05-15",
-      "Due Date": "2026-05-15",
-      "Depends On": "LC-013",
-      "Done means": "Common errors have clear UI messages and safe logs.",
-      "Next action": "Run QA checklist again after any future backend changes.",
-      "Codex Prompt ID": "PROMPT-011",
-      "Notes": "Confirmed working."
-    },
-    {
-      "ID": "LC-015",
       "Phase": "Stage 5 - Product UX",
       "Workstream": "Frontend",
       "Task": "Improve caption app visual layout",
-      "Why it matters": "The app should feel clean enough to show to a tester.",
       "Owner": "You + Codex",
       "Status": "Done",
       "Priority": "P2 - Medium",
-      "Effort hrs": "4",
-      "Start Date": "2026-05-15",
       "Due Date": "2026-05-16",
-      "Depends On": "LC-014",
-      "Done means": "Controls, transcript, saved sessions, and exports are easier to scan.",
-      "Next action": "Run the full QA checklist before sharing with any tester.",
-      "Codex Prompt ID": "PROMPT-012",
-      "Notes": "Stage 5 UI polish confirmed by user."
+      "Done means": "Controls, transcript, saved sessions, exports, and notifications are easier to scan.",
+      "Next action": "Keep UX changes small until after tester feedback.",
+      "Notes": "Stage 5 UI polish confirmed."
     },
     {
-      "ID": "LC-016",
+      "ID": "LC-008",
       "Phase": "Stage 5.5 - Multilingual and accent robustness",
       "Workstream": "Speech QA",
       "Task": "Add and verify multilingual/accent robustness support",
-      "Why it matters": "The product must support real conversations with accents, language switching, and non-English speech.",
       "Owner": "You + Codex",
       "Status": "Done",
       "Priority": "P1 - High",
-      "Effort hrs": "4",
-      "Start Date": "2026-05-16",
       "Due Date": "2026-05-16",
-      "Depends On": "LC-015",
       "Done means": "Auto detect works, specific language hints improve accuracy, English translation target works, and existing caption/session behavior still works.",
       "Next action": "During beta, ask testers to try known-language hints when Auto detect struggles.",
-      "Codex Prompt ID": "PROMPT-013",
-      "Notes": "Prompt parameter bug fixed for gpt-realtime-whisper; vocabulary boost is not guaranteed on the current Realtime Whisper model."
+      "Notes": "Prompt parameter bug fixed for gpt-realtime-whisper; vocabulary boost is not guaranteed on the current model."
     },
     {
-      "ID": "LC-017",
+      "ID": "LC-009",
+      "Phase": "Private beta preparation",
+      "Workstream": "Documentation",
+      "Task": "Create private beta docs",
+      "Owner": "You + Codex",
+      "Status": "Done",
+      "Priority": "P1 - High",
+      "Due Date": "2026-05-16",
+      "Done means": "BETA_TESTER_GUIDE.md, KNOWN_LIMITATIONS.md, FEEDBACK_QUESTIONS.md, and DEMO_CHECKLIST.md exist and README links to them.",
+      "Next action": "Run through DEMO_CHECKLIST.md before the first tester session.",
+      "Notes": "Docs-only change; app code untouched."
+    },
+    {
+      "ID": "LC-010",
       "Phase": "Private beta preparation",
       "Workstream": "Testing",
-      "Task": "Prepare first private tester guide",
-      "Why it matters": "A tester needs simple setup instructions, known limitations, and feedback questions.",
-      "Owner": "You + ChatGPT",
+      "Task": "Run first private tester session",
+      "Owner": "You",
       "Status": "In Progress",
       "Priority": "P1 - High",
-      "Effort hrs": "3",
-      "Start Date": "2026-05-16",
       "Due Date": "2026-05-20",
-      "Depends On": "LC-016",
-      "Done means": "There is a short tester guide and feedback form/questions before sharing the app.",
-      "Next action": "Create private beta tester guide and known limitations list.",
-      "Codex Prompt ID": "PROMPT-014",
+      "Done means": "One trusted tester has tried the app and feedback has been recorded against the feedback questions.",
+      "Next action": "Choose one tester and prepare the demo using DEMO_CHECKLIST.md.",
       "Notes": "Current focus."
     },
     {
-      "ID": "LC-018",
+      "ID": "LC-011",
+      "Phase": "Post-test triage",
+      "Workstream": "Planning",
+      "Task": "Triage first tester feedback",
+      "Owner": "You + ChatGPT",
+      "Status": "Not Started",
+      "Priority": "P1 - High",
+      "Due Date": "2026-05-22",
+      "Done means": "Feedback is split into bugs, confusing UX, accuracy issues, and future ideas, with one next fix selected.",
+      "Next action": "Do after the first tester session.",
+      "Notes": "Do not start until feedback exists."
+    },
+    {
+      "ID": "LC-012",
       "Phase": "Stage 6 - Desktop overlay",
       "Workstream": "Desktop",
       "Task": "Prototype floating caption overlay",
-      "Why it matters": "This is closer to the Ava-like experience for meetings.",
       "Owner": "You + Codex",
       "Status": "Not Started",
       "Priority": "P2 - Medium",
-      "Effort hrs": "8",
-      "Start Date": "2026-06-01",
       "Due Date": "2026-06-21",
-      "Depends On": "LC-017",
       "Done means": "A floating caption window prototype works locally.",
-      "Next action": "Do not start until private beta preparation is complete.",
-      "Codex Prompt ID": "PROMPT-015",
+      "Next action": "Do not start until private beta feedback supports it.",
       "Notes": "Later."
     }
   ]
