@@ -2,8 +2,8 @@
   "meta": {
     "name": "Live Caption MVP Project Dashboard",
     "subtitle": "Project command center for the Ava-like captioning MVP: roadmap, delivery health, task board, risks, and next actions.",
-    "lastUpdated": "2026-05-15",
-    "currentMilestone": "Stage 5: Product UX polish",
+    "lastUpdated": "2026-05-16",
+    "currentMilestone": "Private beta preparation",
     "localCommands": [
       "git pull",
       "pkill node",
@@ -43,15 +43,15 @@
     },
     {
       "name": "Product UX polish",
-      "due": "2026-05-24",
-      "status": "In Progress",
-      "metric": "Cleaner caption app layout, better saved-session area, and easier controls"
+      "due": "2026-05-16",
+      "status": "Done",
+      "metric": "Cleaner caption app layout, better saved-session area, clearer notifications, and easier controls"
     },
     {
       "name": "Private beta readiness",
       "due": "2026-06-07",
-      "status": "Planned",
-      "metric": "Stable sessions, exports, instructions, QA checklist, and basic UX polish"
+      "status": "In Progress",
+      "metric": "Prepare tester guide, known limitations, feedback questions, and demo checklist"
     }
   ],
   "annotations": [
@@ -96,23 +96,29 @@
       "title": "Friendly error handling confirmed",
       "body": "Friendly startup and browser-facing error messages are working. The app remains stable after the reliability pass.",
       "type": "qa"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "Product UX polish confirmed",
+      "body": "Stage 5 UI polish passed QA. The notification, layout balance, controls, transcript readability, and saved sessions remain usable, and the caption engine still works.",
+      "type": "qa"
     }
   ],
   "pipeline": [
     {
       "stage": "Now",
-      "title": "Product UX polish",
-      "description": "Make the caption app easier to scan and use: layout, controls, transcript, exports, and saved sessions."
+      "title": "Private beta preparation",
+      "description": "Prepare a simple tester guide, known limitations, feedback questions, and a demo checklist."
     },
     {
       "stage": "Next",
-      "title": "Run QA checklist again",
-      "description": "Use QA_CHECKLIST.md top to bottom after UX polish changes land."
+      "title": "Run QA checklist before sharing",
+      "description": "Use QA_CHECKLIST.md top to bottom before anyone else tests the app."
     },
     {
       "stage": "Then",
-      "title": "Private beta preparation",
-      "description": "Prepare a simple tester guide, known limitations, and feedback questions."
+      "title": "First private tester session",
+      "description": "Share with one trusted tester and capture feedback on setup, captions, translations, exports, and saved sessions."
     },
     {
       "stage": "Later",
@@ -412,19 +418,37 @@
       "Task": "Improve caption app visual layout",
       "Why it matters": "The app should feel clean enough to show to a tester.",
       "Owner": "You + Codex",
-      "Status": "In Progress",
+      "Status": "Done",
       "Priority": "P2 - Medium",
       "Effort hrs": "4",
       "Start Date": "2026-05-15",
-      "Due Date": "2026-05-24",
+      "Due Date": "2026-05-16",
       "Depends On": "LC-014",
       "Done means": "Controls, transcript, saved sessions, and exports are easier to scan.",
-      "Next action": "Use Codex for a focused UX polish pass, without changing transcription logic.",
+      "Next action": "Run the full QA checklist before sharing with any tester.",
       "Codex Prompt ID": "PROMPT-012",
-      "Notes": "Current focus."
+      "Notes": "Stage 5 UI polish confirmed by user."
     },
     {
       "ID": "LC-016",
+      "Phase": "Private beta preparation",
+      "Workstream": "Testing",
+      "Task": "Prepare first private tester guide",
+      "Why it matters": "A tester needs simple setup instructions, known limitations, and feedback questions.",
+      "Owner": "You + ChatGPT",
+      "Status": "In Progress",
+      "Priority": "P1 - High",
+      "Effort hrs": "3",
+      "Start Date": "2026-05-16",
+      "Due Date": "2026-05-20",
+      "Depends On": "LC-015",
+      "Done means": "There is a short tester guide and feedback form/questions before sharing the app.",
+      "Next action": "Create private beta tester guide and known limitations list.",
+      "Codex Prompt ID": "PROMPT-013",
+      "Notes": "Current focus."
+    },
+    {
+      "ID": "LC-017",
       "Phase": "Stage 6 - Desktop overlay",
       "Workstream": "Desktop",
       "Task": "Prototype floating caption overlay",
@@ -435,10 +459,10 @@
       "Effort hrs": "8",
       "Start Date": "2026-06-01",
       "Due Date": "2026-06-21",
-      "Depends On": "LC-015",
+      "Depends On": "LC-016",
       "Done means": "A floating caption window prototype works locally.",
-      "Next action": "Do not start until the web MVP is stable.",
-      "Codex Prompt ID": "PROMPT-013",
+      "Next action": "Do not start until private beta preparation is complete.",
+      "Codex Prompt ID": "PROMPT-014",
       "Notes": "Later."
     }
   ]
