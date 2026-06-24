@@ -2,7 +2,7 @@
   "meta": {
     "name": "Live Caption MVP Project Dashboard",
     "subtitle": "Project command center for the Ava-like captioning MVP: roadmap, delivery health, task board, risks, and next actions.",
-    "lastUpdated": "2026-05-16",
+    "lastUpdated": "2026-05-17",
     "currentMilestone": "First private tester session",
     "localCommands": [
       "git pull",
@@ -54,6 +54,12 @@
       "metric": "Tester guide, known limitations, feedback questions, demo checklist, and README links created"
     },
     {
+      "name": "Public display and kiosk prototype",
+      "due": "2026-05-17",
+      "status": "Done",
+      "metric": "Public Display Mode works with large live captions, history, privacy notice, and latest-caption updates"
+    },
+    {
       "name": "First private tester session",
       "due": "2026-05-20",
       "status": "In Progress",
@@ -64,6 +70,12 @@
       "due": "2026-06-07",
       "status": "Planned",
       "metric": "Use first tester feedback to decide whether the MVP is ready for a small private beta"
+    },
+    {
+      "name": "Offline Android physical device track",
+      "due": "2026-07-15",
+      "status": "Planned",
+      "metric": "Native Android, whisper.cpp, and bundled tiny.en plan captured as a future product path"
     }
   ],
   "annotations": [
@@ -114,18 +126,30 @@
       "title": "Private beta prep docs created",
       "body": "BETA_TESTER_GUIDE.md, KNOWN_LIMITATIONS.md, FEEDBACK_QUESTIONS.md, and DEMO_CHECKLIST.md were added. README links to all four. No app code changed.",
       "type": "milestone"
+    },
+    {
+      "date": "2026-05-17",
+      "title": "Public Display Mode confirmed",
+      "body": "The public display/kiosk mode now keeps the main caption updated with the latest live text, includes a working history option, avoids cropping, and keeps the privacy notice visible.",
+      "type": "qa"
+    },
+    {
+      "date": "2026-05-17",
+      "title": "Offline Android device path documented",
+      "body": "ANDROID_PHYSICAL_DEVICE_PLAN.md captures the future native Android, whisper.cpp, bundled tiny.en, offline-first physical-device direction. This remains planned, not active.",
+      "type": "planning"
     }
   ],
   "pipeline": [
     {
       "stage": "Now",
       "title": "First private tester session",
-      "description": "Choose one trusted tester, run DEMO_CHECKLIST.md, share the tester docs, and capture feedback."
+      "description": "Choose one trusted tester, run DEMO_CHECKLIST.md, share the tester docs, and capture feedback. Include Public Display Mode if relevant."
     },
     {
       "stage": "Next",
       "title": "Triage tester feedback",
-      "description": "Separate feedback into bugs, confusing UX, accuracy issues, and future ideas. Fix only the highest-value small items first."
+      "description": "Separate feedback into bugs, confusing UX, accuracy issues, public-display feedback, and future ideas. Fix only the highest-value small items first."
     },
     {
       "stage": "Then",
@@ -139,8 +163,8 @@
     },
     {
       "stage": "Future",
-      "title": "Cloud sync or accounts",
-      "description": "Only consider this after private beta feedback proves it is needed."
+      "title": "Offline Android physical device",
+      "description": "Explore a native Android app with local whisper.cpp only after the web/kiosk product is validated."
     }
   ],
   "risks": [
@@ -152,7 +176,7 @@
     {
       "risk": "Feature creep",
       "level": "High",
-      "mitigation": "Only one Codex task at a time; do not start database, login, or desktop overlay until beta feedback is reviewed."
+      "mitigation": "Only one Codex task at a time; do not start database, login, desktop overlay, or Android app until beta feedback is reviewed."
     },
     {
       "risk": "API usage costs",
@@ -172,12 +196,17 @@
     {
       "risk": "Tester feedback may be too broad",
       "level": "Medium",
-      "mitigation": "Use FEEDBACK_QUESTIONS.md and ask testers to focus on setup, accuracy, translation, exports, and saved sessions."
+      "mitigation": "Use FEEDBACK_QUESTIONS.md and ask testers to focus on setup, accuracy, translation, exports, saved sessions, and public display."
     },
     {
       "risk": "Accessibility quality",
       "level": "High",
-      "mitigation": "Prioritize readability, large fonts, keyboard access, and real user feedback."
+      "mitigation": "Prioritize readability, large fonts, keyboard access, public-display readability, and real user feedback."
+    },
+    {
+      "risk": "Offline Android device assumptions are untested",
+      "level": "Medium",
+      "mitigation": "Keep the Android physical-device track as planned only until cheap-tablet performance is tested with whisper.cpp."
     }
   ],
   "tasks": [
@@ -300,6 +329,32 @@
     },
     {
       "ID": "LC-010",
+      "Phase": "Stage 6 - Public display",
+      "Workstream": "Frontend",
+      "Task": "Build and verify Public Display Mode",
+      "Owner": "You + Codex",
+      "Status": "Done",
+      "Priority": "P1 - High",
+      "Due Date": "2026-05-17",
+      "Done means": "Public Display Mode shows large latest captions, supports history, keeps updating while speaking, avoids cropping, and keeps the privacy notice visible.",
+      "Next action": "Use Public Display Mode in the first tester/demo if relevant.",
+      "Notes": "Latest live caption update bug fixed and confirmed by user."
+    },
+    {
+      "ID": "LC-011",
+      "Phase": "Future product direction",
+      "Workstream": "Planning",
+      "Task": "Document offline Android physical-device path",
+      "Owner": "You + Codex",
+      "Status": "Done",
+      "Priority": "P2 - Medium",
+      "Due Date": "2026-05-17",
+      "Done means": "ANDROID_PHYSICAL_DEVICE_PLAN.md exists and README links to it.",
+      "Next action": "Do not start coding Android until web/kiosk tester feedback is reviewed.",
+      "Notes": "Planned future track: native Android app, whisper.cpp, bundled tiny.en quantized model, offline captions."
+    },
+    {
+      "ID": "LC-012",
       "Phase": "Private beta preparation",
       "Workstream": "Testing",
       "Task": "Run first private tester session",
@@ -312,7 +367,7 @@
       "Notes": "Current focus."
     },
     {
-      "ID": "LC-011",
+      "ID": "LC-013",
       "Phase": "Post-test triage",
       "Workstream": "Planning",
       "Task": "Triage first tester feedback",
@@ -320,13 +375,13 @@
       "Status": "Not Started",
       "Priority": "P1 - High",
       "Due Date": "2026-05-22",
-      "Done means": "Feedback is split into bugs, confusing UX, accuracy issues, and future ideas, with one next fix selected.",
+      "Done means": "Feedback is split into bugs, confusing UX, accuracy issues, public-display issues, and future ideas, with one next fix selected.",
       "Next action": "Do after the first tester session.",
       "Notes": "Do not start until feedback exists."
     },
     {
-      "ID": "LC-012",
-      "Phase": "Stage 6 - Desktop overlay",
+      "ID": "LC-014",
+      "Phase": "Stage 7 - Desktop overlay",
       "Workstream": "Desktop",
       "Task": "Prototype floating caption overlay",
       "Owner": "You + Codex",
